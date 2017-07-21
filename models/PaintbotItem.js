@@ -20,23 +20,36 @@ var PaintbotItem = new keystone.List('PaintbotItem', {
 
 PaintbotItem.add({
 	// Initial user input
-	target: { label: 'Template', type: Types.Select, options: 'Balktitel, Begintitel', default: 'Balktitel', index: true, initial: true, hidden: true },
+	target: { label: 'Template', type: Types.Select, options: 'Balktitel, Begintitel, Fotozoom', default: 'Balktitel', index: true, initial: true, hidden: true },
+	//template: { type: Types.Relationship, ref: 'PaintbotTemplates', refPath:'name', index: true, initial: true, hidden: true }
+	//target: { label: 'Template', type: Types.Text, hidden: true	},
 	story: { label: 'Verhaal', type: Types.Text, default: 'verhaal', initial: true, hidden: true },
 
 	// Secondary user input
 	author: { label: 'Redacteur', type: Types.Text, default: 'videopool' },
 	field1: { label: 'Regel 1',type: Types.Text },
-	field2: { label: 'Regel 2',type: Types.Text, collapse: true, dependsOn: { target: ['Begintitel', 'Balktitel'] } },
+	field2: { label: 'Regel 2',type: Types.Text, collapse: true, dependsOn: { target: ['Begintitel', 'Balktitel', 'Fotozoom'] } },
 	field3: { label: 'Regel 3',type: Types.Text, collapse: true, dependsOn: { target: ['Begintitel', 'Balktitel'] } },
 	field4: { label: 'Regel 4',type: Types.Text, collapse: true, dependsOn: { target: ['Begintitel', 'Balktitel'] } },
 	field5: { label: 'Regel 5',type: Types.Text, collapse: true, dependsOn: { target: ['Balktitel'] } },
 	field6: { label: 'Regel 6',type: Types.Text, collapse: true, dependsOn: { target: ['Balktitel'] } },
+	// Image input
+	image1: { type: Types.CloudinaryImage, autoCleanup : true, folder: '/v1/images', dependsOn: { target: 'Fotozoom' } },
+	toggleImage1: { type: String, default: '{{off}}', noedit: true, watch: 'field1', value: (function(){
+			if (this.image1=='') {
+				return '{{off}}'
+			} else {
+				return '{{on}}'
+			};
+		})
+	},
+
+	// Promote draft to ready
 	ReadyToRender: { label: 'Verstuur naar de Paintbot', type: Boolean, default: false },
 
 	// Not yet implemented
-	//image1: { type: Types.CloudinaryImage, autoCleanup : true, hidden: true },
-	//toggleImage1: { type: Boolean, folder: 'v1/images', default: false, hidden: true },
 	//RenderSettings: { type: String, hidden: true }
+
 
 	// Calculated fields
 	output: { label: 'Bestandsnaam', type: Types.Text, noedit: true, initial: false, hidden: true, fixed: true },
