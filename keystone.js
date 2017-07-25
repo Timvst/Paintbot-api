@@ -48,9 +48,15 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	paintbot: ['PaintbotItem','PaintbotTemplates'],
+	paintbot: ['PaintbotItem'],
 	users: 'users',
 });
+
+// CloudinaryImage connection
+keystone.set('cloudinary config', 'cloudinary://427413998864119:g26XvSNd2ipB2VucEMcqpSOpTJk@timvst' );
+
+// optional, will prefix all built-in tags with 'keystone_'
+keystone.set('cloudinary prefix', 'keystone');
 
 // Start Keystone to connect to your database and initialise the web server
 
