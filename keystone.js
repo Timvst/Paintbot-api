@@ -52,6 +52,9 @@ keystone.set('nav', {
 	users: 'users',
 });
 
+// Set login logo
+keystone.set('signin logo', '../images/paintbot.png');
+
 // CloudinaryImage connection
 keystone.set('cloudinary config', 'cloudinary://427413998864119:g26XvSNd2ipB2VucEMcqpSOpTJk@timvst' );
 
