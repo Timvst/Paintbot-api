@@ -8,6 +8,11 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
+require('dotenv').config();
+
+
+var keystone = require('keystone');
+var Key = keystone.list('Key');
 
 
 /**
@@ -20,7 +25,6 @@ var _ = require('lodash');
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -52,4 +56,22 @@ exports.requireUser = function (req, res, next) {
 	} else {
 		next();
 	}
+};
+
+/**
+	Checks if key in POST request is present in database
+ */
+exports.checkAPIKey = function (req, res, next) {
+	Key.model.find()
+		.where('apiKey', req.get('x-api-key'))
+		.select('apiKey')
+		.exec(function(err, keys) {
+			if (keys.length == 1) {
+				console.log(keys)
+				next();
+			} else {
+				res.status(401)
+				res.json('not authorized')
+			}
+		});
 };

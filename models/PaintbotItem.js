@@ -1,4 +1,5 @@
-var keystone = require('keystone');
+var keystone = require('keystone'),
+utils = require('keystone-utils');
 var Types = keystone.Field.Types;
 // var modelCleanCyclic = require('./modelCleanCyclic');
 // var jsonSelect = require('mongoose-json-select');
@@ -31,12 +32,12 @@ PaintbotItem.add({
 
 	// Secondary user input
 	author: { label: 'Redacteur', type: Types.Text, default: 'videopool' },
-	field1: { label: 'Regel 1', type: Types.Text },
-	field2: { label: 'Regel 2', type: Types.Text, collapse: true, dependsOn: { target: ['Balktitel', 'Begintitel'] } },
-	field3: { label: 'Regel 3', type: Types.Text, collapse: true, dependsOn: { target: ['Balktitel', 'Begintitel'] } },
-	field4: { label: 'Regel 4', type: Types.Text, collapse: true, dependsOn: { target: ['Balktitel'] } },
-	field5: { label: 'Regel 5', type: Types.Text, collapse: true, dependsOn: { target: [''] } },
-	field6: { label: 'Regel 6', type: Types.Text, collapse: true, dependsOn: { target: [''] } },
+	field1: { label: 'Regel 1', type: Types.Text, max: 45 },
+	field2: { label: 'Regel 2', type: Types.Text, max: 45, collapse: true, dependsOn: { target: ['Balktitel', 'Begintitel'] } },
+	field3: { label: 'Regel 3', type: Types.Text, max: 45, collapse: true, dependsOn: { target: ['Balktitel', 'Begintitel'] } },
+	field4: { label: 'Regel 4', type: Types.Text, max: 45, collapse: true, dependsOn: { target: ['Balktitel'] } },
+	field5: { label: 'Regel 5', type: Types.Text, max: 45, collapse: true, dependsOn: { target: [''] } },
+	field6: { label: 'Regel 6', type: Types.Text, max: 45, collapse: true, dependsOn: { target: [''] } },
 
 	imageObject: { label: 'Afbeelding', type: Types.CloudinaryImage, autoCleanup : true, folder: 'fotozoom', publicID: 'output', dependsOn: { target: 'Fotozoom' } },
 
@@ -130,35 +131,35 @@ PaintbotItem.schema.pre('save', function(next) {
         this.renderStatus = 'ready'
 				this.ReadyToRender = false
     };
-		if (this.field1 == null ) {
-			this.toggle1 = '{{off}}'
-		} else {
+		if (this.field1) {
 			this.toggle1 = null
-		};
-		if (this.field2 == null ) {
-			this.toggle2 = '{{off}}'
 		} else {
+			this.toggle1 = '{{off}}'
+		};
+		if (this.field2) {
 			this.toggle2 = null
-		};
-		if (this.field3 == null ) {
-			this.toggle3 = '{{off}}'
 		} else {
+			this.toggle2 = '{{off}}'
+		};
+		if (this.field3) {
 			this.toggle3 = null
-		};
-		if (this.field4 == null ) {
-			this.toggle4 = '{{off}}'
 		} else {
+			this.toggle3 = '{{off}}'
+		};
+		if (this.field4) {
 			this.toggle4 = null
-		};
-		if (this.field5 == null ) {
-			this.toggle5 = '{{off}}'
 		} else {
+			this.toggle4 = '{{off}}'
+		};
+		if (this.field5) {
 			this.toggle5 = null
-		};
-		if (this.field6 == null ) {
-			this.toggle6 = '{{off}}'
 		} else {
+			this.toggle5 = '{{off}}'
+		};
+		if (this.field6) {
 			this.toggle6 = null
+		} else {
+			this.toggle6 = '{{off}}'
 		};
 		if (this.imageObject.secure_url == null) {
 			this.image1 = null

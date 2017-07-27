@@ -11,8 +11,8 @@ var Twig = require('twig');
 // and documentation.
 
 keystone.init({
-	'name': 'Paintbot-api-kjs',
-	'brand': 'Paintbot-api-kjs',
+	'name': 'Paintbot',
+	'brand': 'Paintbot',
 
 	'less': 'public',
 	'static': 'public',
@@ -60,6 +60,7 @@ keystone.set('cloudinary config', 'cloudinary://427413998864119:g26XvSNd2ipB2Vuc
 
 // optional, will prefix all built-in tags with 'keystone_'
 keystone.set('cloudinary prefix', 'keystone');
+
 
 // Start Keystone to connect to your database and initialise the web server
 
