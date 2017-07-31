@@ -16,7 +16,7 @@ Key.add({
 
 Key.schema.pre('save', function(next) {
     if (this.apiKey == null ) {
-        this.apiKey = randomize('Aa0', 64);
+        this.apiKey = randomize('Aa0', 256);
     }
 		next();
 });
