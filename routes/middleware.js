@@ -14,6 +14,28 @@ require('dotenv').config();
 var keystone = require('keystone');
 var Key = keystone.list('Key');
 
+/**
+  Sets navigation and enforces permissions specified in the user models
+	https://gist.github.com/tmaclean-LV/919886cb2830da6a5710d35abbce46f4
+ */
+// exports.enforcePermissions = function (req, res, next) {
+// 	var nav = {
+// 		Paintbot: 'PaintbotItem',
+// 		User: 'User',
+// 		Template: ['Template','Key']
+// 	};
+// 	keystone.set('nav', nav);
+// 	if (req.user) {
+// 		// This assumes users have a set of boolean fields, "permBlog", "permAbout", etc.
+// 		// which control access to these sets of navigation items.
+// 		var hideLists = (name, hidden) => keystone.list(name).set('hidden', hidden);
+// 		['Template','Key'].map(list => hideLists(list, !req.user.permTemplates));
+// 		!req.user.permTemplates && delete nav.template;
+// 		keystone.nav = keystone.initNav(nav);
+// 	}
+// 	next();
+// };
+
 
 /**
 	Initialises the standard view locals

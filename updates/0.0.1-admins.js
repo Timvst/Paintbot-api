@@ -9,7 +9,11 @@
 
 exports.create = {
 	User: [
-		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 't.v.steenbergen@gmail.com', 'password': 'test', 'isAdmin': true },
+		{ 'name.first': 'Tim', 'name.last': 'van Steenbergen', 'email': 'tim.van.steenbergen@nos.nl', 'password': 'Waterschade', 'isAdmin': true, 'permTemplates': true },
+		{ 'name.first': 'Mariette', 'name.last': 'Twilt', 'email': 'mariette.twilt@nos.nl', 'password': 'Isometrisch', 'isAdmin': true, 'permTemplates': true },
+		{ 'name.first': 'Ben', 'name.last': 'Prins', 'email': 'ben.prins@nos.nl', 'password': 'Thehoff', 'isAdmin': true, 'permTemplates': true },
+		{ 'name.first': 'Stijn', 'name.last': 'Postmus', 'email': 'stijn.postmus@nos.nl', 'password': 'Otes', 'isAdmin': true, 'permTemplates': true },
+		{ 'name.first': 'Video', 'name.last': 'Pool', 'email': 'digidesk@nos.nl', 'password': 'Thumbnail', 'isAdmin': true, 'permTemplates': false },
 	],
 };
 
