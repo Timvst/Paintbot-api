@@ -48,7 +48,7 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	paintbot: ['PaintbotItem'],
+	paintbot: 'PaintbotItem',
 	users: 'users',
 });
 

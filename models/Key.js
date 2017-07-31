@@ -10,7 +10,7 @@ var Key = new keystone.List('Key');
 
 Key.add({
 	name: { type: Types.Text, label: 'Naam', required: true, index: true, noedit: true },
-	apiKey: { type: Types.Key, label: 'API key', initial: false, noedit: true}
+	apiKey: { type: Types.Textarea, label: 'API key', height: 200, initial: false, noedit: true}
 });
 
 
