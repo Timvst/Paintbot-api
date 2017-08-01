@@ -9,12 +9,12 @@ var keystone = require('keystone'),
 var Template = new keystone.List('Template',{
   autokey: { path: 'slug', from: 'name', unique: true },
   map: { name: 'title' },
-  defaultSort: 'name' 
+  defaultSort: 'name'
 });
 
 Template.add({
 	// User input
-	name: { type: Types.Text, label: 'Naam', required: true, index: true, hidden: true  },
+	name: { type: Types.Text, label: 'Naam', required: true, initial: true, index: true, hidden: true  },
 	selectfields: { type: Types.Select, label: 'Aantal tekstvelden', initial: false, default: '0', options: '0,1,2,3,4,5,6,7,8,9,10'},
   max: { type: Types.Text, label: 'Max. aantal karakters per veld', initial: false, default: '0'},
 	selectimages: { type: Types.Select, label: 'Aantal Afbeeldingen', initial: false, default: '0', options: '0,1,2,3,4,5'},
