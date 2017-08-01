@@ -8,7 +8,7 @@ var keystone = require('keystone'),
  */
 var Template = new keystone.List('Template',{
   autokey: { path: 'slug', from: 'name', unique: true },
-  map: { name: 'title' },
+  map: { name: 'name' },
   defaultSort: 'name'
 });
 
