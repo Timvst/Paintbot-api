@@ -61,6 +61,8 @@ keystone.set('cloudinary config', 'cloudinary://427413998864119:g26XvSNd2ipB2Vuc
 // optional, will prefix all built-in tags with 'keystone_'
 keystone.set('cloudinary prefix', 'keystone');
 
+keystone.set('session store', 'mongo');
+
 
 // Start Keystone to connect to your database and initialise the web server
 
