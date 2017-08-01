@@ -6,7 +6,11 @@ var keystone = require('keystone'),
  * User Model
  * ==========
  */
-var Template = new keystone.List('Template');
+var Template = new keystone.List('Template',{
+  autokey: { path: 'slug', from: 'name', unique: true },
+  map: { name: 'title' },
+  defaultSort: 'name' 
+});
 
 Template.add({
 	// User input
