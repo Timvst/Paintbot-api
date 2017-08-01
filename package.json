@@ -1,9 +1,10 @@
 {
-  "name": "paintbot-api-kjs",
+  "name": "paintbot-nos",
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "8.x.x"
+    "node": "6.11.1",
+    "npm": "5.3.0",
   },
   "dependencies": {
     "async": "2.1.4",
