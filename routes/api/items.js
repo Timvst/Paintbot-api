@@ -4,7 +4,7 @@ var async = require('async'),
 
 var PaintbotItem = keystone.list('PaintbotItem');
 
-var whitelist = '-_id target output renderStatus author field1 field2 field3 field4 field5 field6 toggle1 toggle2 toggle3 toggle4 toggle5 toggle6 image1 toggleImage1';
+var whitelist = '-_id id target output renderStatus author field1 field2 field3 field4 field5 field6 toggle1 toggle2 toggle3 toggle4 toggle5 toggle6 image1 toggleImage1';
 
 
 
