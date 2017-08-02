@@ -12,7 +12,7 @@ var Types = keystone.Field.Types;
 var PaintbotItem = new keystone.List('PaintbotItem', {
 	label: 'Paintbot Items',
 	track: true,
-	autokey: { path: 'output', from: 'story target author', fixed: true, unique: true },
+	autokey: { path: 'output', from: 'target story', fixed: true, unique: true },
 	map: { name: 'output' },
 	defaultSort: 'createdAt',
 	plural: 'items',
