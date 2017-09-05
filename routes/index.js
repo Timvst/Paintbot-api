@@ -44,12 +44,10 @@ exports = module.exports = function (app) {
 
 	// API
 
-	// API routes
-	app.all('/api*', keystone.middleware.api);
+	// all API routes are protected
+	app.all('/api*', keystone.middleware.api, middleware.checkAPIKey);
 	app.get('/api/items', routes.api.items.list);
 	app.get('/api/items/ready', routes.api.items.ready);
-	// API protected routes
-	app.all('/api/update*', middleware.checkAPIKey);
 	app.all('/api/update/:output/queued', routes.api.update.queued);
 	app.all('/api/update/:output/processing', routes.api.update.queued);
 	app.all('/api/update/:output/done', routes.api.update.done);
